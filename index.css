@@ -8,6 +8,7 @@ h1 {
 
 .btn {
   cursor: pointer;
+  color: #000000;
 }
 
 .clicked {
