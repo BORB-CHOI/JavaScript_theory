@@ -1,8 +1,5 @@
 body {
   background-color: white;
-}
-
-h1 {
   color: #34495e;
 }
 
@@ -13,5 +10,13 @@ h1 {
 
 .clicked {
   color: #7f8c8d;
-  transition: color 0.5s ease-in-out;
+}
+
+.form,
+.greetings {
+  display: none;
+}
+
+.showing {
+  display: block;
 }
