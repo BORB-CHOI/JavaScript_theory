@@ -1,5 +1,7 @@
 const toDoForm = document.querySelector(".js-toDoForm"),
-  toDoInput = toDoForm.querySelector("input"),
+  toDoInput = toDoForm.querySelector(".input"),
+  searchForm = document.querySelector(".js-searchForm"),
+  searchInput = searchForm.querySelector(".input-search"),
   toDoList = document.querySelector(".js-toDoList");
 
 const TODOS_LS = "toDos";
@@ -41,6 +43,13 @@ function paintToDo(text) {
   saveToDos();
 }
 
+function handleSearch(e) {
+  e.preventDefault();
+  const currentValue = searchForm.value;
+  location.href = "https://www.google.com/search?q=" + currentValue;
+  searchForm.value = "";
+}
+
 function handleSubmit(event) {
   event.preventDefault();
   const currentValue = toDoInput.value;
@@ -60,6 +69,7 @@ function loadToDos() {
 
 function init() {
   loadToDos();
+  searchForm.addEventListener("submit", handleSearch);
   toDoForm.addEventListener("submit", handleSubmit);
 }
 
