@@ -1,7 +1,5 @@
 const toDoForm = document.querySelector(".js-toDoForm"),
   toDoInput = toDoForm.querySelector(".input"),
-  searchForm = document.querySelector(".js-searchForm"),
-  searchInput = searchForm.querySelector(".input-search"),
   toDoList = document.querySelector(".js-toDoList");
 
 const TODOS_LS = "toDos";
@@ -43,34 +41,11 @@ function paintToDo(text) {
   saveToDos();
 }
 
-function handleSearch(e) {
-  e.preventDefault();
-  const currentValue = searchInput.value;
-  location.href = "https://www.google.com/search?q=" + currentValue;
-  searchForm.value = "";
-}
-
 function handleSubmit(event) {
   event.preventDefault();
   const currentValue = toDoInput.value;
   paintToDo(currentValue);
   toDoInput.value = "";
-}
-
-function handleSearchFocus(e) {
-  if (e.type === "focus") {
-    e.target.placeholder = "";
-  } else if (blur) {
-    e.target.placeholder = "Google in search";
-  }
-}
-
-function handleTodoFocus(e) {
-  if (e.type === "focus") {
-    e.target.placeholder = "";
-  } else if (blur) {
-    e.target.placeholder = "Write a to do";
-  }
 }
 
 function loadToDos() {
@@ -85,11 +60,6 @@ function loadToDos() {
 
 function init() {
   loadToDos();
-  searchInput.addEventListener("focus", handleSearchFocus);
-  searchInput.addEventListener("blur", handleSearchFocus);
-  toDoInput.addEventListener("focus", handleTodoFocus);
-  toDoInput.addEventListener("blur", handleTodoFocus);
-  searchForm.addEventListener("submit", handleSearch);
   toDoForm.addEventListener("submit", handleSubmit);
 }
 
