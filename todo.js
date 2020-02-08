@@ -57,6 +57,22 @@ function handleSubmit(event) {
   toDoInput.value = "";
 }
 
+function handleSearchFocus(e) {
+  if (e.type === "focus") {
+    e.target.placeholder = "";
+  } else if (blur) {
+    e.target.placeholder = "Google in search";
+  }
+}
+
+function handleTodoFocus(e) {
+  if (e.type === "focus") {
+    e.target.placeholder = "";
+  } else if (blur) {
+    e.target.placeholder = "Write a to do";
+  }
+}
+
 function loadToDos() {
   const loadedToDos = localStorage.getItem(TODOS_LS);
   if (loadedToDos !== null) {
@@ -69,6 +85,10 @@ function loadToDos() {
 
 function init() {
   loadToDos();
+  searchInput.addEventListener("focus", handleSearchFocus);
+  searchInput.addEventListener("blur", handleSearchFocus);
+  toDoInput.addEventListener("focus", handleTodoFocus);
+  toDoInput.addEventListener("blur", handleTodoFocus);
   searchForm.addEventListener("submit", handleSearch);
   toDoForm.addEventListener("submit", handleSubmit);
 }
