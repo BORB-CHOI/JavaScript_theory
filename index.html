@@ -2,22 +2,24 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Something</title>
+    <title>Home</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="js-clock">
-      <h1>00:00</h1>
+    <div class="mainForm">
+      <div class="js-clock">
+        <h1 class="time">00:00</h1>
+      </div>
+      <form class="js-form form">
+        <input type="text" class="input" placeholder="what is your name?" />
+      </form>
+      <h4 class="js-greetings greetings font"></h4>
+      <form class="js-toDoForm">
+        <input type="text" class="input" placeholder="Write a to do" />
+      </form>
+      <ul class="js-toDoList font"></ul>
+      <span class="js-weather font"></span>
     </div>
-    <form class="js-form form">
-      <input type="text" placeholder="what is your name?" />
-    </form>
-    <h4 class="js-greetings greetings"></h4>
-    <form class="js-toDoForm">
-      <input type="text" placeholder="Write a to do" />
-    </form>
-    <ul class="js-toDoList"></ul>
-    <span class="js-weather"></span>
     <script src="clock.js"></script>
     <script src="gretting.js"></script>
     <script src="todo.js"></script>
